@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  
+  <!-- 콘솔 어펜더 -->
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+  <!-- 파일 어펜더 -->  
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+	<file>/logs/ch11.log</file>
+	
+	<encoder>
+	  <pattern>%date %level [%thread] %logger{10} [%file:%line] -%kvp- %msg%n</pattern>
+	</encoder>
+  </appender>
+  
+  <!-- 
+  	롤링 어펜더
+   	- 파일의 크기, 날짜에 따라 로그파일 생성을 위한 어펜더 
+   -->
+	 
+  <root level="info">
+    <appender-ref ref="FILE" />
+  </root>
+</configuration>

@@ -31,12 +31,22 @@ public class SQL {
 												+ "`regip`=?,"
 												+ "`rdate`=NOW()";
 	public static final String SELECT_MAX_NO = "select MAX(no) from article";
-	
+	public static final String SELECT_ARTICLES = "select a.*, b.nick from article as a "
+												+"join user as b on a.writer = b.uid "
+												+ "order by no desc limit ?, 10" ;
+	public static final String SELECT_COUNT_TOTAL = "select count(*) from article";
+	public static final String SELECT_ARTICLE = "select * from article as a "
+												+ "left join file as b on a.no = b.ano "
+												+ "where a.no = ?";
+	public static final String UPDATE_ARTICLE_HIT_COUNT = "update article set hit = hit + 1 "
+												+ "where no = ?";
 	//file
 	public static final String INSERT_FILE = "insert into file set "
 											+ "ano = ?,"
 											+ "oName = ?,"
 											+ "sName = ?,"
 											+ "rdate = NOW()";
-		
+	public static final String SELECT_FILE = "select * from file where fno=?";	
+	public static final String UPDATE_FILE_DOWNLOAD_COUNT = "update file set download = download + 1 "
+															+ "where fno = ?";
 }

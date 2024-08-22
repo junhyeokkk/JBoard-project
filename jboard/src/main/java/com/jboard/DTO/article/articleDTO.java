@@ -1,5 +1,7 @@
 package com.jboard.DTO.article;
 
+import java.util.List;
+
 public class articleDTO {
 	
 	private int no;
@@ -12,6 +14,23 @@ public class articleDTO {
 	private String writer;
 	private String regip;
 	private String rdate;
+
+	// 추가 필드
+	private String nick;
+	private List<fileDTO> files;
+	
+	public List<fileDTO> getFiles() {
+		return files;
+	}
+	public void setFiles(List<fileDTO> files) {
+		this.files = files;
+	}
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
 	public int getNo() {
 		return no;
 	}
@@ -71,6 +90,9 @@ public class articleDTO {
 	}
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
+	}
+	public void setRdateSub(String rdate) {
+		this.rdate = rdate.substring(0,10);
 	}
 	@Override
 	public String toString() {

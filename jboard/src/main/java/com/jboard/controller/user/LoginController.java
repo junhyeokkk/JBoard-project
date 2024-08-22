@@ -43,8 +43,6 @@ public class LoginController extends HttpServlet{
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/user/login.jsp");
 			dispatcher.forward(req, resp);
 		}
-		
-		
 	}
 	
 	@Override
